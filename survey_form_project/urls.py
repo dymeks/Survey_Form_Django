@@ -18,5 +18,5 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^survey_form/', include('apps.survey_form_app')),
+    url(r'^survey_form/', include('apps.survey_form_app.urls')),
 ]
