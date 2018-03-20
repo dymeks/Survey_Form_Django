@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
+from time import gmtime, strftime,localtime
 from django.shortcuts import render, HttpResponse, redirect
 
 # Create your views here.
@@ -8,7 +8,7 @@ def index(request):
 	return render(request,'session_words_app/index.html')
 
 def result(request):
-	print "INITIAL WORDS in session: " +  str(request.session['words'])
+	date = strftime("%Y-%m-%d %H:%M %p", localtime())
 	css_class = ''
 	word = {}
 	if 'large_font' in request.POST:
@@ -20,23 +20,21 @@ def result(request):
 	else:
 		css_class = css_class + 'green'
 
-	print "SESSION is: " + str('words' in request.session)
+	
 	word['class'] = css_class
-	word['word'] = request.POST['word']		
+	word['word'] = request.POST['word']
+	word['date'] = date
+	print str('words' in request.session)
 	if 'words' not in request.session:
 		request.session['words'] = []
+		print "SESSION is: " + str('words' in request.session)
 	
 	request.session['words'].append(word)
 	request.session.modified = True
-	print "First time in session."
-	# 	print css_class
 	
 	return render(request,'session_words_app/index.html')
 
 def clear_session(request):
-	request.session['words'] = []
+	# request.session.flush()
+	request.session.clear()
 	return render(request,'session_words_app/index.html')
-
-# print "WORDS IS: " + str(request.session['words'])
-# request.session['words'] = request.session['words'].append(word)
-# print str(request.session['words'])
