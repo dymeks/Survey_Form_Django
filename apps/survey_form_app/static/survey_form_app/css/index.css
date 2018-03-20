@@ -1,0 +1,17 @@
+.container {
+	border:5px solid black;
+	width:500px;
+	margin:0px auto;
+	padding:10px;
+}
+
+.submit {
+	background-color: #76A5AF;
+	color:white;
+}
+
+.comment_box {
+	min-width:450px;
+	min-height: 200px;
+	margin:auto;
+}

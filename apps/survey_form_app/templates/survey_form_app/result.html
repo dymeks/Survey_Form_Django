@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Dojo Survey Index</title>
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'survey_form_app/css/result.css' %}" media="screen" title="no title"  charset="utf-8">
+</head>
+<body>
+	<div class="green">
+		Thanks for submitting this form! You have submitted
+		this form {{request.session.number_submitted}} times now.
+	</div>
+	<div class="container">
+		<p>Submitted Information</p>
+		<p>Name: {{name}}</p>
+		<p>Dojo Location: {{dojo_location}}</p>
+		<p>Favorite Language: {{favorite_language}}</p>
+		<p>Comment: {{comment}}</p>
+
+	</div>
+</body>
+</html>
