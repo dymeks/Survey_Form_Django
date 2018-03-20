@@ -20,4 +20,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^survey_form/', include('apps.survey_form_app.urls')),
     url(r'^session_words/', include('apps.session_words_app.urls')),
+    url(r'^',include('apps.dojo_ninjas.urls'))
 ]
